@@ -1,56 +1,118 @@
 /* ============================================================
-   EWIGER KALENDER – iOS 26 Liquid Glass Design System
+   EWIGER KALENDER – iOS Liquid Glass + Polarlicht Dark Mode
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
 
-/* ---- CSS Variables ---- */
-:root {
-  --glass-bg: rgba(255, 255, 255, 0.18);
-  --glass-bg-strong: rgba(255, 255, 255, 0.28);
-  --glass-border: rgba(255, 255, 255, 0.45);
-  --glass-shadow: 0 8px 32px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.05);
-  --glass-shadow-lg: 0 20px 60px rgba(0,0,0,0.14), 0 4px 16px rgba(0,0,0,0.07);
-  --glass-blur: blur(20px) saturate(180%);
+/* ============================================================
+   DESIGN TOKENS – Light & Dark
+   ============================================================ */
 
-  --text-primary: #1a1a2e;
+:root {
+  /* Glass */
+  --glass-bg:        rgba(255,255,255,0.22);
+  --glass-bg-strong: rgba(255,255,255,0.30);
+  --glass-border:    rgba(255,255,255,0.50);
+  --glass-shadow:    0 8px 32px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.05);
+  --glass-shadow-lg: 0 20px 60px rgba(0,0,0,0.13), 0 4px 16px rgba(0,0,0,0.07);
+  --glass-blur:      blur(20px) saturate(180%);
+
+  /* Text */
+  --text-primary:   #1a1a2e;
   --text-secondary: rgba(26,26,46,0.60);
-  --text-light: rgba(26,26,46,0.40);
+  --text-light:     rgba(26,26,46,0.38);
+
+  /* Body */
+  --body-bg: linear-gradient(135deg, #e8f4fd 0%, #f0e8fb 30%, #fde8f0 60%, #fdf5e8 100%);
 
   /* Jahreszeiten */
   --spring-accent: #66bb6a;
-  --spring-deep: #2e7d32;
-  --spring-glass: rgba(102, 187, 106, 0.12);
-  --spring-border: rgba(102, 187, 106, 0.30);
-  --spring-text: #1b5e20;
+  --spring-deep:   #2e7d32;
+  --spring-glass:  rgba(102,187,106,0.12);
+  --spring-border: rgba(102,187,106,0.28);
+  --spring-text:   #1b5e20;
 
   --summer-accent: #ffa726;
-  --summer-deep: #e65100;
-  --summer-glass: rgba(255, 167, 38, 0.12);
-  --summer-border: rgba(255, 167, 38, 0.30);
-  --summer-text: #bf360c;
+  --summer-deep:   #e65100;
+  --summer-glass:  rgba(255,167,38,0.12);
+  --summer-border: rgba(255,167,38,0.28);
+  --summer-text:   #bf360c;
 
   --autumn-accent: #ef6c00;
-  --autumn-deep: #bf360c;
-  --autumn-glass: rgba(239, 108, 0, 0.12);
-  --autumn-border: rgba(239, 108, 0, 0.30);
-  --autumn-text: #bf360c;
+  --autumn-deep:   #bf360c;
+  --autumn-glass:  rgba(239,108,0,0.12);
+  --autumn-border: rgba(239,108,0,0.28);
+  --autumn-text:   #bf360c;
 
   --winter-accent: #5c6bc0;
-  --winter-deep: #283593;
-  --winter-glass: rgba(92, 107, 192, 0.12);
-  --winter-border: rgba(92, 107, 192, 0.30);
-  --winter-text: #1a237e;
+  --winter-deep:   #283593;
+  --winter-glass:  rgba(92,107,192,0.12);
+  --winter-border: rgba(92,107,192,0.28);
+  --winter-text:   #1a237e;
 
-  --body-bg: linear-gradient(135deg, #e8f4fd 0%, #f0e8fb 30%, #fde8f0 60%, #fdf5e8 100%);
-
+  /* Radien */
   --radius-sm: 12px;
   --radius-md: 18px;
   --radius-lg: 24px;
   --radius-xl: 32px;
+
+  /* Tab-Highlight */
+  --tab-highlight: linear-gradient(90deg, #667eea, #764ba2);
+
+  /* Disable */
+  --disabled-opacity: 0.38;
 }
 
-/* ---- Reset ---- */
+/* ============================================================
+   DARK MODE – Polarlicht Design
+   ============================================================ */
+
+[data-theme="dark"] {
+  --glass-bg:        rgba(255,255,255,0.06);
+  --glass-bg-strong: rgba(255,255,255,0.10);
+  --glass-border:    rgba(255,255,255,0.14);
+  --glass-shadow:    0 8px 32px rgba(0,0,0,0.40), 0 2px 8px rgba(0,0,0,0.25);
+  --glass-shadow-lg: 0 20px 60px rgba(0,0,0,0.55), 0 4px 16px rgba(0,0,0,0.35);
+
+  --text-primary:   rgba(255,255,255,0.92);
+  --text-secondary: rgba(255,255,255,0.55);
+  --text-light:     rgba(255,255,255,0.28);
+
+  --body-bg: linear-gradient(135deg, #0a0e1a 0%, #0d1a2e 25%, #0a1628 50%, #0f0d1e 75%, #0a1220 100%);
+
+  /* Polarlicht-Jahreszeiten (leuchtender im Dark Mode) */
+  --spring-accent: #69f0ae;
+  --spring-deep:   #69f0ae;
+  --spring-glass:  rgba(105,240,174,0.10);
+  --spring-border: rgba(105,240,174,0.22);
+  --spring-text:   #69f0ae;
+
+  --summer-accent: #ffd740;
+  --summer-deep:   #ffd740;
+  --summer-glass:  rgba(255,215,64,0.10);
+  --summer-border: rgba(255,215,64,0.22);
+  --summer-text:   #ffd740;
+
+  --autumn-accent: #ff6d00;
+  --autumn-deep:   #ffab40;
+  --autumn-glass:  rgba(255,109,0,0.10);
+  --autumn-border: rgba(255,109,0,0.22);
+  --autumn-text:   #ffab40;
+
+  --winter-accent: #82b1ff;
+  --winter-deep:   #82b1ff;
+  --winter-glass:  rgba(130,177,255,0.10);
+  --winter-border: rgba(130,177,255,0.22);
+  --winter-text:   #82b1ff;
+
+  --tab-highlight: linear-gradient(90deg, #82b1ff, #ce93d8);
+  --disabled-opacity: 0.22;
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 
@@ -61,29 +123,43 @@ body {
   color: var(--text-primary);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  transition: background 0.4s ease, color 0.3s ease;
 }
 
-/* ---- Hintergrund-Orbs ---- */
+/* ============================================================
+   HINTERGRUND-ORBS
+   ============================================================ */
+
 .bg-orb {
   position: fixed;
   border-radius: 50%;
   filter: blur(80px);
-  opacity: 0.35;
   pointer-events: none;
   z-index: 0;
-  animation: orb-drift 12s ease-in-out infinite alternate;
+  animation: orb-drift 14s ease-in-out infinite alternate;
 }
-.orb-1 { width: 500px; height: 500px; background: radial-gradient(circle, #a8edea, #fed6e3); top: -100px; left: -150px; }
-.orb-2 { width: 400px; height: 400px; background: radial-gradient(circle, #ffecd2, #fcb69f); top: 40%; right: -100px; animation-delay: -3s; }
-.orb-3 { width: 350px; height: 350px; background: radial-gradient(circle, #c8e6c9, #e8f5e9); bottom: 10%; left: 20%; animation-delay: -6s; }
-.orb-4 { width: 300px; height: 300px; background: radial-gradient(circle, #a18cd1, #fbc2eb); bottom: -50px; right: 20%; animation-delay: -9s; }
+
+/* Light Mode Orbs */
+[data-theme="light"] .orb-1 { width: 500px; height: 500px; background: radial-gradient(circle, #a8edea, #fed6e3); opacity: 0.35; top: -100px; left: -150px; }
+[data-theme="light"] .orb-2 { width: 400px; height: 400px; background: radial-gradient(circle, #ffecd2, #fcb69f); opacity: 0.30; top: 40%; right: -100px; animation-delay: -4s; }
+[data-theme="light"] .orb-3 { width: 350px; height: 350px; background: radial-gradient(circle, #d4e8d0, #e8f5e9); opacity: 0.28; bottom: 10%; left: 20%; animation-delay: -8s; }
+[data-theme="light"] .orb-4 { width: 300px; height: 300px; background: radial-gradient(circle, #a18cd1, #fbc2eb); opacity: 0.28; bottom: -50px; right: 20%; animation-delay: -12s; }
+
+/* Dark Mode – Polarlicht Orbs */
+[data-theme="dark"] .orb-1 { width: 600px; height: 600px; background: radial-gradient(circle, rgba(0,200,150,0.6), rgba(0,100,200,0.4), transparent); opacity: 0.30; top: -150px; left: -200px; animation-duration: 18s; }
+[data-theme="dark"] .orb-2 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(100,0,200,0.5), rgba(200,0,150,0.3), transparent); opacity: 0.25; top: 30%; right: -150px; animation-delay: -5s; animation-duration: 20s; }
+[data-theme="dark"] .orb-3 { width: 450px; height: 450px; background: radial-gradient(circle, rgba(0,150,255,0.5), rgba(0,200,150,0.3), transparent); opacity: 0.22; bottom: 5%; left: 10%; animation-delay: -10s; animation-duration: 22s; }
+[data-theme="dark"] .orb-4 { width: 400px; height: 400px; background: radial-gradient(circle, rgba(150,0,255,0.4), rgba(0,100,200,0.3), transparent); opacity: 0.20; bottom: -80px; right: 15%; animation-delay: -15s; animation-duration: 16s; }
 
 @keyframes orb-drift {
   0%   { transform: translate(0, 0) scale(1); }
-  100% { transform: translate(40px, 60px) scale(1.08); }
+  100% { transform: translate(50px, 70px) scale(1.12); }
 }
 
-/* ---- Layout ---- */
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+
 .app-container {
   position: relative;
   z-index: 1;
@@ -92,7 +168,10 @@ body {
   padding: 20px 16px 80px;
 }
 
-/* ---- Glass Card ---- */
+/* ============================================================
+   GLASS CARD
+   ============================================================ */
+
 .glass-card {
   background: var(--glass-bg-strong);
   backdrop-filter: var(--glass-blur);
@@ -100,12 +179,15 @@ body {
   border: 1.5px solid var(--glass-border);
   border-radius: var(--radius-lg);
   box-shadow: var(--glass-shadow);
-  transition: box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease, background 0.4s ease, border-color 0.4s ease;
 }
 
-/* ---- Header ---- */
+/* ============================================================
+   HEADER
+   ============================================================ */
+
 .glass-header {
-  background: rgba(255,255,255,0.28);
+  background: var(--glass-bg-strong);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   border: 1.5px solid var(--glass-border);
@@ -114,6 +196,7 @@ body {
   padding: 24px 28px 0;
   margin-bottom: 20px;
   overflow: hidden;
+  transition: background 0.4s ease, border-color 0.4s ease;
 }
 
 .header-inner {
@@ -130,33 +213,45 @@ body {
   gap: 12px;
 }
 
-.header-icon {
-  font-size: 2rem;
-}
+.header-icon { font-size: 2rem; }
 
 h1 {
   font-family: 'Playfair Display', Georgia, serif;
   font-size: clamp(1.8rem, 5vw, 2.8rem);
   font-weight: 700;
   letter-spacing: 0.04em;
+}
+
+[data-theme="light"] h1 {
   background: linear-gradient(135deg, #2d3436, #636e72, #2d3436);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
+[data-theme="dark"] h1 {
+  background: linear-gradient(135deg, #82b1ff, #ce93d8, #69f0ae);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 .header-sub {
-  font-size: 0.82rem;
+  font-size: 0.80rem;
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--text-secondary);
 }
 
-/* ---- Tab-Navigation ---- */
+/* ============================================================
+   TAB-NAVIGATION
+   ============================================================ */
+
 .tab-nav {
   display: flex;
-  border-top: 1px solid rgba(255,255,255,0.4);
+  align-items: stretch;
+  border-top: 1px solid var(--glass-border);
   margin: 0 -28px;
 }
 
@@ -182,14 +277,32 @@ h1 {
   transform: translateX(-50%) scaleX(0);
   width: 60%; height: 3px;
   border-radius: 3px 3px 0 0;
-  background: linear-gradient(90deg, #667eea, #764ba2);
+  background: var(--tab-highlight);
   transition: transform 0.25s ease;
 }
 
 .tab-btn.active { color: var(--text-primary); }
 .tab-btn.active::after { transform: translateX(-50%) scaleX(1); }
 
-/* ---- Tab-Inhalte ---- */
+/* Dark Mode Toggle */
+.darkmode-toggle {
+  padding: 14px 18px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.darkmode-toggle:hover { transform: scale(1.15) rotate(15deg); }
+
+/* ============================================================
+   TAB INHALTE
+   ============================================================ */
+
 .tab-content { display: none; animation: fade-in 0.35s ease; }
 .tab-content.active { display: block; }
 
@@ -199,7 +312,7 @@ h1 {
 }
 
 /* ============================================================
-   ÜBERSICHT – Heutiges Datum
+   HEUTE-KARTE
    ============================================================ */
 
 .today-card {
@@ -217,41 +330,41 @@ h1 {
   flex: 1;
 }
 
-.today-col:last-child {
+.today-col-right {
   align-items: flex-end;
   text-align: right;
 }
 
 .today-label {
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   font-weight: 800;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--text-light);
 }
 
 .today-date {
-  font-size: clamp(0.88rem, 2.2vw, 1.05rem);
+  font-size: clamp(0.85rem, 2.0vw, 1.02rem);
   font-weight: 700;
   color: var(--text-primary);
   line-height: 1.4;
 }
 
 .today-sep {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   color: var(--text-light);
   flex-shrink: 0;
   user-select: none;
 }
 
-/* Jahreszeit-Farben für den Ewig-Text */
+/* Jahreszeit-Textfarben */
 .season-text-spring { color: var(--spring-deep); }
 .season-text-summer { color: var(--summer-deep); }
 .season-text-autumn { color: var(--autumn-deep); }
 .season-text-winter { color: var(--winter-deep); }
 
 /* ============================================================
-   JAHRESÜBERSICHT
+   JAHRESSTEUERUNG
    ============================================================ */
 
 .year-controls {
@@ -259,7 +372,7 @@ h1 {
   align-items: center;
   justify-content: center;
   gap: 24px;
-  padding: 16px 28px;
+  padding: 15px 28px;
   margin-bottom: 20px;
 }
 
@@ -267,7 +380,7 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3px;
+  gap: 2px;
   min-width: 120px;
 }
 
@@ -275,28 +388,31 @@ h1 {
   font-family: 'Playfair Display', serif;
   font-size: 2rem;
   font-weight: 700;
+  color: var(--text-primary);
 }
 
 .year-sub {
-  font-size: 0.76rem;
+  font-size: 0.74rem;
   font-weight: 700;
   color: var(--text-secondary);
   letter-spacing: 0.06em;
 }
 
-.year-season-section {
-  margin-bottom: 24px;
-}
+/* ============================================================
+   JAHRESGITTER
+   ============================================================ */
+
+.year-season-section { margin-bottom: 22px; }
 
 .season-section-header {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.88rem;
+  font-size: 0.84rem;
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  padding: 8px 4px;
+  padding: 7px 4px;
   margin-bottom: 10px;
 }
 
@@ -311,11 +427,8 @@ h1 {
   gap: 12px;
 }
 
-.year-month-card {
-  padding: 14px;
-}
+.year-month-card { padding: 14px; }
 
-/* Saisonale Randfarben – kein Leuchteffekt */
 .year-month-card.month-spring { border-color: var(--spring-border); }
 .year-month-card.month-summer { border-color: var(--summer-border); }
 .year-month-card.month-autumn { border-color: var(--autumn-border); }
@@ -325,13 +438,14 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   font-weight: 800;
-  font-size: 0.85rem;
+  font-size: 0.84rem;
+  color: var(--text-primary);
 }
 
 .year-month-sub {
-  font-size: 0.68rem;
+  font-size: 0.66rem;
   font-weight: 500;
   color: var(--text-secondary);
 }
@@ -339,14 +453,14 @@ h1 {
 .year-cal-header {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  margin-bottom: 3px;
+  margin-bottom: 2px;
 }
 
 .year-cal-header span {
   text-align: center;
-  font-size: 0.60rem;
+  font-size: 0.58rem;
   font-weight: 800;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.02em;
   color: var(--text-light);
   padding: 2px 0;
 }
@@ -354,93 +468,79 @@ h1 {
 .year-cal-days {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 2px;
+  gap: 1px;
 }
 
 .year-day {
   text-align: center;
-  font-size: 0.73rem;
+  font-size: 0.72rem;
   font-weight: 600;
   padding: 5px 1px;
   border-radius: 7px;
   cursor: pointer;
   color: var(--text-secondary);
-  transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+  transition: background 0.14s ease, color 0.14s ease, transform 0.14s ease;
   user-select: none;
 }
 
-.year-day:hover {
-  background: rgba(255,255,255,0.65);
+.year-day:hover:not(.disabled-day) {
+  background: var(--glass-bg-strong);
   color: var(--text-primary);
-  transform: scale(1.1);
+  transform: scale(1.12);
 }
 
-/* Heutiger Tag – saisonal eingefärbt, kein grüner Glow */
-.month-spring .year-day.today { background: var(--spring-accent); color: white; font-weight: 900; }
-.month-summer .year-day.today { background: var(--summer-accent); color: white; font-weight: 900; }
-.month-autumn .year-day.today { background: var(--autumn-accent); color: white; font-weight: 900; }
-.month-winter .year-day.today { background: var(--winter-accent); color: white; font-weight: 900; }
+/* Heutiger Tag – saisonal ohne Glow-Effekt */
+.month-spring .year-day.today { background: var(--spring-accent); color: #fff; font-weight: 900; border-radius: 7px; }
+.month-summer .year-day.today { background: var(--summer-accent); color: #fff; font-weight: 900; border-radius: 7px; }
+.month-autumn .year-day.today { background: var(--autumn-accent); color: #fff; font-weight: 900; border-radius: 7px; }
+.month-winter .year-day.today { background: var(--winter-accent); color: #fff; font-weight: 900; border-radius: 7px; }
 
 /* Sondertage */
 .year-special-card {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  min-height: 110px;
-  text-align: center;
+  gap: 8px;
 }
 
-.special-day-btn {
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 5px;
-  transition: transform 0.2s;
+/* Passend zu anderen Monaten: 7-Spalten-Grid, Zahl in Spalte 7 (So) */
+.special-days-row {
+  grid-template-columns: repeat(7, 1fr) !important;
 }
-.special-day-btn:hover { transform: scale(1.08); }
 
-.special-day-circle {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: var(--winter-glass);
-  border: 1.5px solid var(--winter-border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Playfair Display', serif;
-  font-size: 1rem;
+.special-num {
+  grid-column: 7; /* Sonntag-Spalte – Sondertage haben keinen festen Wochentag */
+  font-size: 0.72rem;
   font-weight: 700;
-  color: var(--winter-text);
 }
 
-.special-day-label {
-  font-size: 0.70rem;
-  color: var(--text-secondary);
+.disabled-day {
+  opacity: var(--disabled-opacity);
+  cursor: default;
+}
+
+.disabled-card {
+  opacity: 0.65;
+}
+
+.intera-next {
+  font-size: 0.62rem;
+  color: var(--text-light);
   font-weight: 600;
+  text-align: center;
+  margin-top: 4px;
 }
 
 /* ============================================================
-   POPUP – vereinfacht
+   POPUP – positioniert, klein, kein fixed-center
    ============================================================ */
 
 .popup-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.25);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  opacity: 0;
   pointer-events: none;
-  transition: opacity 0.25s ease;
+  opacity: 0;
+  transition: opacity 0.2s ease;
 }
 
 .popup-overlay.visible {
@@ -449,61 +549,86 @@ h1 {
 }
 
 .popup-card {
-  max-width: 340px;
-  width: 100%;
-  padding: 28px 24px 24px;
-  position: relative;
-  animation: popup-in 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: fixed; /* absolute zu overlay */
+  padding: 14px 16px;
+  min-width: 220px;
+  max-width: 320px;
+  pointer-events: auto;
+  animation: popup-in 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 1001;
 }
 
 @keyframes popup-in {
-  from { opacity: 0; transform: scale(0.88) translateY(16px); }
+  from { opacity: 0; transform: scale(0.88) translateY(8px); }
   to   { opacity: 1; transform: scale(1) translateY(0); }
 }
 
-.popup-close {
-  position: absolute;
-  top: 12px; right: 14px;
-  background: rgba(0,0,0,0.07);
-  border: none;
-  border-radius: 50%;
-  width: 28px; height: 28px;
-  cursor: pointer;
-  font-size: 0.72rem;
-  color: var(--text-secondary);
-  display: flex; align-items: center; justify-content: center;
-  transition: background 0.2s;
-}
-.popup-close:hover { background: rgba(0,0,0,0.13); }
-
-.popup-simple {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding-top: 4px;
-}
-
-.popup-ewig-str {
-  font-size: 1.05rem;
+.popup-ewig {
+  font-size: 0.93rem;
   font-weight: 800;
   line-height: 1.4;
-  padding: 12px 14px;
+  padding: 9px 12px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 6px;
+}
+
+.popup-ewig.season-spring { background: var(--spring-glass); color: var(--spring-text); border: 1px solid var(--spring-border); }
+.popup-ewig.season-summer { background: var(--summer-glass); color: var(--summer-text); border: 1px solid var(--summer-border); }
+.popup-ewig.season-autumn { background: var(--autumn-glass); color: var(--autumn-text); border: 1px solid var(--autumn-border); }
+.popup-ewig.season-winter { background: var(--winter-glass); color: var(--winter-text); border: 1px solid var(--winter-border); }
+
+.popup-greg {
+  font-size: 0.80rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  padding: 7px 12px;
+  background: var(--glass-bg);
   border-radius: var(--radius-sm);
 }
 
-.popup-ewig-str.season-spring { background: var(--spring-glass); color: var(--spring-text); border: 1px solid var(--spring-border); }
-.popup-ewig-str.season-summer { background: var(--summer-glass); color: var(--summer-text); border: 1px solid var(--summer-border); }
-.popup-ewig-str.season-autumn { background: var(--autumn-glass); color: var(--autumn-text); border: 1px solid var(--autumn-border); }
-.popup-ewig-str.season-winter { background: var(--winter-glass); color: var(--winter-text); border: 1px solid var(--winter-border); }
+/* ============================================================
+   BUTTONS
+   ============================================================ */
 
-.popup-greg-str {
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--text-secondary);
-  padding: 10px 14px;
-  background: rgba(255,255,255,0.35);
+.glass-btn {
+  padding: 11px 20px;
+  background: var(--glass-bg-strong);
+  backdrop-filter: blur(10px);
+  border: 1.5px solid var(--glass-border);
   border-radius: var(--radius-sm);
-  line-height: 1.5;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  letter-spacing: 0.04em;
+}
+
+.glass-btn:hover {
+  background: var(--glass-bg-strong);
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+  box-shadow: 0 5px 16px rgba(0,0,0,0.10);
+}
+
+.glass-btn:active { transform: translateY(0); }
+
+.glass-btn.primary {
+  background: var(--tab-highlight);
+  border-color: transparent;
+  color: white;
+}
+
+.glass-btn.primary:hover {
+  filter: brightness(1.12);
+  box-shadow: 0 7px 20px rgba(102,126,234,0.30);
+}
+
+.glass-btn.icon-btn {
+  padding: 9px 16px;
+  font-size: 1.1rem;
+  line-height: 1;
 }
 
 /* ============================================================
@@ -518,37 +643,37 @@ h1 {
 }
 
 .converter-block {
-  padding: 28px;
+  padding: 26px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 15px;
 }
 
 .converter-title {
-  font-size: 1rem;
+  font-size: 0.98rem;
   font-weight: 800;
   letter-spacing: 0.04em;
   color: var(--text-primary);
 }
 
 .converter-divider {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   color: var(--text-light);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 60px;
+  padding-top: 55px;
   user-select: none;
 }
 
 .input-group {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 5px;
 }
 
 .input-group label {
-  font-size: 0.70rem;
+  font-size: 0.68rem;
   font-weight: 800;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -557,13 +682,13 @@ h1 {
 
 .glass-input {
   width: 100%;
-  padding: 11px 14px;
-  background: rgba(255,255,255,0.40);
+  padding: 10px 13px;
+  background: var(--glass-bg);
   backdrop-filter: blur(10px);
-  border: 1.5px solid rgba(255,255,255,0.60);
+  border: 1.5px solid var(--glass-border);
   border-radius: var(--radius-sm);
   font-family: 'Nunito', sans-serif;
-  font-size: 0.93rem;
+  font-size: 0.92rem;
   font-weight: 600;
   color: var(--text-primary);
   outline: none;
@@ -573,58 +698,26 @@ h1 {
 }
 
 .glass-input:focus {
-  border-color: rgba(102, 126, 234, 0.55);
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.10);
-  background: rgba(255,255,255,0.55);
+  border-color: rgba(102,126,234,0.55);
+  box-shadow: 0 0 0 3px rgba(102,126,234,0.10);
+}
+
+[data-theme="dark"] .glass-input:focus {
+  border-color: rgba(130,177,255,0.55);
+  box-shadow: 0 0 0 3px rgba(130,177,255,0.10);
 }
 
 .glass-select {
   cursor: pointer;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23636e72' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='2' fill='none'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-position: right 13px center;
-  padding-right: 38px;
+  background-position: right 12px center;
+  padding-right: 36px;
 }
 
-/* Buttons */
-.glass-btn {
-  padding: 11px 22px;
-  background: rgba(255,255,255,0.35);
-  backdrop-filter: blur(10px);
-  border: 1.5px solid rgba(255,255,255,0.55);
-  border-radius: var(--radius-sm);
-  font-family: 'Nunito', sans-serif;
-  font-size: 0.88rem;
-  font-weight: 800;
-  color: var(--text-primary);
-  cursor: pointer;
-  transition: all 0.2s ease;
-  letter-spacing: 0.04em;
-}
-
-.glass-btn:hover {
-  background: rgba(255,255,255,0.55);
-  transform: translateY(-1px);
-  box-shadow: 0 5px 16px rgba(0,0,0,0.09);
-}
-
-.glass-btn:active { transform: translateY(0); }
-
-.glass-btn.primary {
-  background: linear-gradient(135deg, rgba(102,126,234,0.85), rgba(118,75,162,0.85));
-  border-color: rgba(255,255,255,0.4);
-  color: white;
-}
-
-.glass-btn.primary:hover {
-  background: linear-gradient(135deg, rgba(102,126,234,1), rgba(118,75,162,1));
-  box-shadow: 0 7px 20px rgba(102,126,234,0.28);
-}
-
-.glass-btn.icon-btn {
-  padding: 9px 16px;
-  font-size: 1.2rem;
-  line-height: 1;
+[data-theme="dark"] .glass-input option {
+  background: #1a2035;
+  color: rgba(255,255,255,0.88);
 }
 
 /* Ergebnisboxen */
@@ -637,30 +730,27 @@ h1 {
 }
 
 .result-box.show {
-  max-height: 180px;
+  max-height: 160px;
   opacity: 1;
-  padding: 14px;
-  background: rgba(255,255,255,0.35);
-  border: 1.5px solid rgba(255,255,255,0.55);
+  padding: 13px;
+  background: var(--glass-bg);
+  border: 1.5px solid var(--glass-border);
 }
 
 .result-big {
-  font-size: 1.02rem;
+  font-size: 1.0rem;
   font-weight: 800;
   margin-bottom: 4px;
+  color: var(--text-primary);
 }
 
 .result-sub {
-  font-size: 0.80rem;
+  font-size: 0.78rem;
   color: var(--text-secondary);
   font-weight: 600;
 }
 
-.result-main {
-  padding: 8px 10px;
-  border-radius: var(--radius-sm);
-}
-
+.result-main { padding: 7px 9px; border-radius: var(--radius-sm); }
 .result-main.season-spring { background: var(--spring-glass); }
 .result-main.season-summer { background: var(--summer-glass); }
 .result-main.season-autumn { background: var(--autumn-glass); }
@@ -672,12 +762,10 @@ h1 {
 
 @media (max-width: 768px) {
   .today-card { flex-direction: column; gap: 8px; padding: 18px; }
-  .today-col:last-child { align-items: flex-start; text-align: left; }
+  .today-col-right { align-items: flex-start; text-align: left; }
   .today-sep { display: none; }
-
   .converter-wrap { grid-template-columns: 1fr; }
   .converter-divider { padding-top: 0; font-size: 1.1rem; }
-
   .year-months-row { grid-template-columns: 1fr 1fr; }
   .glass-header { padding: 18px 18px 0; }
 }
