@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ewiger Kalender</title>
+  <title>☀️ Ewiger Kalender</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,11 +23,12 @@
         <div class="header-title">
           <span class="header-icon">☀️</span>
           <h1>Ewiger Kalender</h1>
+          <span class="header-icon">☀️</span>
         </div>
         <p class="header-sub">28 Tage · 13 Monate · Immer gleich</p>
       </div>
       <nav class="tab-nav">
-        <button class="tab-btn active" data-tab="uebersicht">Übersicht</button>
+        <button class="tab-btn active" data-tab="uebersicht">☀️ Übersicht</button>
         <button class="tab-btn" data-tab="konverter">Konverter</button>
         <button class="darkmode-toggle" id="darkmode-toggle" title="Dark Mode">
           <span class="toggle-icon">🌙</span>
@@ -54,7 +55,6 @@
         <button class="glass-btn icon-btn" id="btn-year-prev">‹</button>
         <div class="year-display">
           <span id="year-label">2026</span>
-          <span class="year-sub" id="year-leap-label"></span>
         </div>
         <button class="glass-btn icon-btn" id="btn-year-next">›</button>
       </div>
@@ -102,7 +102,7 @@
               <option value="11">11 – Ventis (Windzeit)</option>
               <option value="12">12 – Nivara (Schneezeit)</option>
               <option value="13">13 – Noctis (Dunkelzeit)</option>
-              <option value="0">Unara / Intera (Jahrestag)</option>
+              <option value="0">Unara / Intera (Zeitloser Tag)</option>
             </select>
           </div>
           <div class="input-group" id="ewig-day-group">
@@ -118,7 +118,7 @@
 
   </div>
 
-  <!-- Popup (am Klickort positioniert) -->
+  <!-- Popup (scrollt mit, positioniert via JS) -->
   <div class="popup-overlay" id="popup-overlay">
     <div class="popup-card glass-card" id="popup-card">
       <div id="popup-content"></div>
